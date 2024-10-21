@@ -1,14 +1,8 @@
-clear; clc;
-filepath = 'C:\Users\User\Downloads\1.xlsx';
-data = xlsread(filepath);
-X = data(:, 1:8);     % Input features
-y = data(:, 9);       % Target variable
-
 X_norm = zscore(X);
 y_norm = zscore(y);
 
 
-degree = 2;
+degree = x;
 X_poly = ones(size(X_norm, 1), 1);
 for i = 1:size(X_norm, 2)
     for d = 1:degree
@@ -24,7 +18,7 @@ end
 
 
 input_size = size(X_poly, 2);
-hidden_sizes = [128, 64, 64, 64, 64, 64, 64, 64, 64, 32];  
+hidden_sizes = [];  
 output_size = 1;
 
 
